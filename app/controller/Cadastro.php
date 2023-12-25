@@ -1,19 +1,27 @@
 <?php
+namespace app\controller;
+
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include '../model/User.php';
 
-echo 'teste02';
-class Cadastro{
+echo 'teste023';
+
+class Cadastro
+{
     private $user;
 
-    public function __construct() {
+    public function __construct()
+    {
         echo 'teste1';
-        $this->user = new User();
+        $this->user = new \User();
+        echo 'teste3';
     }
 
-    public function processCadastro() {
+    public function processCadastro()
+    {
         echo 'teste2';
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name       = $_POST['name'];
@@ -37,7 +45,8 @@ class Cadastro{
         }
     }
 
-    public function showCadastroForm() {
+    public function showCadastroForm()
+    {
         include '../view/cadastro_form.php';
     }
 }
