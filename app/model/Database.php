@@ -7,7 +7,8 @@ class Database {
     private $dbname = "blog";
 
     protected function connect() {
-        $conn = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+
+        $conn = new \mysqli($this->host, $this->username, $this->password, $this->dbname);
         if ($conn->connect_error) {
             die("Exception: " . $conn->connect_error);
         }

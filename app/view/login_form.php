@@ -1,9 +1,10 @@
 <?php
-$msg="";
+
+$msg = "";
 
 session_start();
-if (isset($_SESSION['login_falhou'])) {
-    $msg ='<div class="alert alert-danger">Login ou senha incorreto!</div>';
+if (isset($_SESSION['login_falhou']) and $_SESSION['login_falhou'] == true) {
+    $msg = '<div class="alert alert-danger">Login ou senha incorreto!</div>';
     unset($_SESSION['login_falhou']);
 }
 session_write_close();
