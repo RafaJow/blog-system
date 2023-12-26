@@ -1,8 +1,8 @@
 <?php
-include '../controller/Home.php';
+include_once '../controller/PostController.php';
 
-$homeController = new Home();
-$posts = $homeController->getAllPosts();
+$postController = new PostController();
+$posts = $postController->getAllPosts();
 
 ?>
 <!DOCTYPE html>

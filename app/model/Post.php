@@ -1,93 +1,36 @@
 <?php
 
-include 'Database.php';
+include_once 'Database.php';
 
 class Post extends Database
 {
-    private $id;
-    private $title;
-    private $content;
-    private $author;
-
     public function getAllPosts()
     {
         $conn = $this->connect();
-        $sql = "SELECT post.id, title, content, user_id, CONCAT(user.name, ' ', user.lastname) AS author FROM post join user where post.user_id = user.id";
+        $sql = "SELECT post.id, title, content, user_id, CONCAT(user.name, ' ', user.lastname) AS author FROM post join user where post.user_id = user.id ORDER BY post.id DESC";
         $result = $conn->query($sql);
         $conn->close();
 
         return $result;
     }
 
-    /**
-     * Get the value of id
-     */
-    public function getId()
+    public function createPost($title, $content)
     {
-        return $this->id;
-    }
+        $conn = $this->connect();
 
-    /**
-     * Set the value of id
-     */
-    public function setId($id): self
-    {
-        $this->id = $id;
+        $title      = $conn->real_escape_string($title);
+        $content    = $conn->real_escape_string($content);
 
-        return $this;
-    }
+        $sql = "INSERT INTO post(title, content, user_id) VALUES(?, ?, 1)";
 
-    /**
-     * Get the value of title
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $title, $content);
 
-    /**
-     * Set the value of title
-     */
-    public function setTitle($title): self
-    {
-        $this->title = $title;
+        if (!$stmt->execute()) {
+            echo "Erro ao inserir registro: " . $stmt->error;
+        }
 
-        return $this;
-    }
-
-    /**
-     * Get the value of content
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * Set the value of content
-     */
-    public function setContent($content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of author
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set the value of author
-     */
-    public function setAuthor($author): self
-    {
-        $this->author = $author;
-
-        return $this;
+        $stmt->close();
+        $conn->close();
     }
 }
