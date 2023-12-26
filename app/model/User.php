@@ -12,7 +12,6 @@ class User extends Database
 
     public function createUser($name, $lastname, $email, $password){
         
-        echo 'teste';
         // verifica se usar já existe
         $conn = $this->connect();
         $email = $conn->real_escape_string($email);
@@ -23,10 +22,10 @@ class User extends Database
         $result = $stmt->get_result();
         $data = $result->fetch_assoc();
 
-        if($data != null){
+        if ($data) {
             $stmt->close();
             $conn->close();
-            return $data;
+            return false;
         }
 
         // cadastra user
@@ -41,7 +40,6 @@ class User extends Database
         $stmt->bind_param("ssss", $name, $lastname, $email, $password);
         $stmt->execute();
         $result = $stmt->get_result();
-        $data = $result->fetch_assoc();
         $stmt->close();
         $conn->close();
 

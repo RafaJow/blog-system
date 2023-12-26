@@ -2,6 +2,10 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+include_once '../controller/CadastroController.php';
+
+$cadastroController = new CadastroController();
+
 $msg = "";
 
 session_start();
@@ -31,7 +35,7 @@ session_write_close();
                     <div class="card-header">
                         <h3 class="text-center">Registro</h3>
                     </div>
-                    <form class="row g-3" method="post" action="../controller/Cadastro.php?action=processCadastro">
+                    <form class="row g-3" method="post" action="<?= $cadastroController->processCadastro() ?>">
                         <div class="col-md-6">
                             <label for="name" class="form-label">Nome</label>
                             <input name="name" type="name" class="form-control" id="name" required>
@@ -53,9 +57,9 @@ session_write_close();
                         </div>
                     </form>
                 </div>
+                <?= $msg ?>
             </div>
         </div>
-        <?= $msg ?>
     </div>
 </body>
 
