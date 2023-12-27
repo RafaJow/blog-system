@@ -3,7 +3,15 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 include_once '../controller/PostController.php';
+include_once '../controller/Auth.php';
+
 $postController = new PostController();
+$authController = new Auth();
+
+if (!$authController->isUserLoggedIn()) {
+    header("Location: acesso_negado.php");
+}
+
 ?>
 
 <!DOCTYPE html>

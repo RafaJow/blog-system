@@ -43,7 +43,8 @@ session_write_close();
                             </div>
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Entrar</button>
-                                <a id="registro" class="btn btn-secondary" href="view/cadastro_form.php">Não possui uma conta ? registre-se agora</a>
+                                <a id="registro" class="btn btn-success" href="view/cadastro_form.php">Não possui uma conta ? registre-se agora</a>
+                                <a id="registro" class="btn btn-secondary" href="view/home.php">Entrar como visitante</a>
                             </div>
                         </form>
                     </div>
