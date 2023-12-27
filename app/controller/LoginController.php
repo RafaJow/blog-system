@@ -1,12 +1,16 @@
 <?php
 
-include 'model/User.php';
+include_once 'model/User.php';
 
-class Login{
+class LoginController{
     private $user;
 
     public function __construct() {
         $this->user = new User();
+    }
+
+    public function index() {
+        $this->showLoginForm();
     }
 
     public function processLogin() {
@@ -15,10 +19,9 @@ class Login{
             $password = $_POST['password'];
 
             $user = $this->user->validaLogin($name, $password);
-            echo json_encode($user);
 
             if ($user != null) {
-                echo "Login bem-sucedido!";
+                $this->showHome();
             } else {
                 session_start();
                 $_SESSION['login_falhou'] = true;
@@ -30,5 +33,10 @@ class Login{
 
     public function showLoginForm() {
         include 'view/login_form.php';
+    }
+    public function showHome() {
+        // include 'view/home.php';
+        header('Location:view/home.php');
+
     }
 }

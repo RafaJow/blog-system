@@ -28,7 +28,10 @@ class CadastroController
             echo "user ".json_encode($user);
 
             if ($user == true) {
-                echo "Cadastro bem-sucedido!";
+                session_start();
+                $_SESSION['cadastro_sucesso'] = true;
+                session_write_close();
+                $this->showCadastroForm();
             } else {
                 session_start();
                 $_SESSION['cadastro_falhou'] = true;
@@ -41,5 +44,6 @@ class CadastroController
     public function showCadastroForm()
     {
         header('Location:../view/cadastro_form.php');
+        // include '../view/cadastro_form.php';
     }
 }

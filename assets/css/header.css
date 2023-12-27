@@ -1,0 +1,13 @@
+header {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+#home{
+    color: #FFFFFF;
+    text-decoration: unset;
+}
+#home:hover{
+    opacity: 0.6;
+}

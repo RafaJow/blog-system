@@ -12,6 +12,9 @@ session_start();
 if (isset($_SESSION['cadastro_falhou']) and $_SESSION['cadastro_falhou'] == true) {
     $msg = '<div class="alert alert-danger">Esse email já foi cadastrado</div>';
     unset($_SESSION['cadastro_falhou']);
+}elseif(isset($_SESSION['cadastro_sucesso']) and $_SESSION['cadastro_sucesso'] == true){
+    $msg = '<div class="alert alert-success">Cadastrado com sucesso!</div>';
+    unset($_SESSION['cadastro_sucesso']);
 }
 session_write_close();
 ?>
@@ -54,6 +57,7 @@ session_write_close();
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Registrar-se</button>
+                            <a id="logar" class="btn btn-secondary" href="../">Já possui uma conta ? entre agora</a>
                         </div>
                     </form>
                 </div>

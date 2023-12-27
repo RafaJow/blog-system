@@ -16,10 +16,9 @@ $posts = $postController->getAllPosts();
     <link href="../../assets/css/home.css" rel="stylesheet">
 </head>
 
+<?php include 'header.php'; ?>
+
 <body>
-    <header>
-        <h1>Blog System</h1>
-    </header>
     <section class="container">
         <?php foreach ($posts as $post) { ?>
             <article>

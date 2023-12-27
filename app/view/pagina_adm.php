@@ -17,6 +17,8 @@ $postController = new PostController();
     <link href="../../assets/css/pagina_adm.css" rel="stylesheet">
 </head>
 
+<?php include 'header.php'; ?>
+
 <body>
     <div class="container mt-5">
         <h2>Listagem de posts</h2>
