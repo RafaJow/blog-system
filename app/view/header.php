@@ -1,3 +1,9 @@
+<?php
+include_once '../controller/Auth.php';
+
+$authController = new Auth();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,9 +26,14 @@
                 <div class="col-md-6 text-end">
                     <nav>
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a href="pagina_adm.php" class="text-white">Página administrativa</a></li>
-                            <li class="list-inline-item"><a href="../" class="text-white">Login</a></li>
-                            <li class="list-inline-item"><a href="cadastro_form.php" class="text-white">Registre-se</a></li>
+                            <?php
+                            if ($authController->isUserLoggedIn()) { ?>
+                                <li class="list-inline-item"><a href="pagina_adm.php" class="text-white">Página administrativa</a></li>
+                                <li class="list-inline-item"><a href="../" class="text-white">Sair</a></li>
+                            <?php } else { ?>
+                                <li class="list-inline-item"><a href="../" class="text-white">Login</a></li>
+                                <li class="list-inline-item"><a href="cadastro_form.php" class="text-white">Registre-se</a></li>
+                            <?php } ?>
                         </ul>
                     </nav>
                 </div>
