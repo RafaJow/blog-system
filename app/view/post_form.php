@@ -31,6 +31,8 @@ if (isset($_GET['id'])) {
     <link href="../../assets/css/post_form.css" rel="stylesheet">
 </head>
 
+<?php include 'header.php'; ?>
+
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">

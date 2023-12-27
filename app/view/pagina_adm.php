@@ -21,7 +21,10 @@ $postController = new PostController();
 
 <body>
     <div class="container mt-5">
-        <h2>Listagem de posts</h2>
+        <div class="superior">
+            <h2>Listagem de posts</h2>
+            <a class="btn btn-success" href="post_form.php">Fazer novo Post</a>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>

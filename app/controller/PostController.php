@@ -47,13 +47,13 @@ class PostController
             }
 
             $this->post->createPost($title, $content);
-            $this->showHome();
+            $this->showPaginaAdm();
         }
     }
 
     public function updatePost($postId, $title, $content){
         $this->post->updatePost($postId, $title, $content);
-        $this->showHome();
+        $this->showPaginaAdm();
     }
 
     public function showHome()
