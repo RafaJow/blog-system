@@ -1,5 +1,6 @@
 <?php
 
+// conexão com o banco é feita aqui
 class Database {
     private $host = "127.0.0.1";
     private $username = "root";

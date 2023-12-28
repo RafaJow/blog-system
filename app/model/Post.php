@@ -4,6 +4,7 @@ include_once 'Database.php';
 
 class Post extends Database
 {
+    // atualiza dados do post
     public function updatePost($postId, $title, $content){
         $conn = $this->connect();
 
@@ -23,6 +24,8 @@ class Post extends Database
         $stmt->close();
         $conn->close();
     }
+
+    // pega dados do post pelo id
     public function getPostById($postId)
     {
         $conn = $this->connect();
@@ -39,6 +42,7 @@ class Post extends Database
         return $data;
     }
 
+    // apaga post no banco
     public function deletePost($postId)
     {
         $conn = $this->connect();
@@ -53,6 +57,7 @@ class Post extends Database
         $conn->close();
     }
 
+    // pega todos os posts
     public function getAllPosts()
     {
         $conn = $this->connect();
@@ -63,6 +68,7 @@ class Post extends Database
         return $result;
     }
 
+    // cria post
     public function createPost($title, $content)
     {
         $conn = $this->connect();

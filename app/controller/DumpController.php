@@ -7,7 +7,8 @@ class DumpController extends Database
     public function __construct()
     {
     }
-
+    
+    // gera dump da base de dados
     public function geraDump()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

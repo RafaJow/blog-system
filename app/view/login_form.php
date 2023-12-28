@@ -1,3 +1,4 @@
+<!-- Página de login -->
 <?php
 include_once 'controller/LoginController.php';
 $loginController = new LoginController();

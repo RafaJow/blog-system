@@ -6,6 +6,7 @@ class Auth
         
     }
 
+    // verifica se user ta logado
     public function isUserLoggedIn()
     {
         $isLogged = false;
@@ -19,6 +20,7 @@ class Auth
         return false;
     }
 
+    // pega id do user logado
     public function getLoggedUserId()
     {
         $loggedUserId = false;
@@ -30,6 +32,8 @@ class Auth
 
         return $loggedUserId;
     }
+
+    // redireciona para pagina de login
     public function showLogin()
     {
         header('Location:../');

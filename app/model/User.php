@@ -10,8 +10,8 @@ class User extends Database
     private $password;
     private $email;
 
+    // criação de user
     public function createUser($name, $lastname, $email, $password){
-        
         // verifica se usar já existe
         $conn = $this->connect();
         $email = $conn->real_escape_string($email);
@@ -46,6 +46,7 @@ class User extends Database
         return true;
     }
 
+    // validação dos campos de login
     public function validaLogin($name, $password)
     {
         $conn = $this->connect();

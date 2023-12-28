@@ -15,6 +15,7 @@ class CadastroController
         $this->user = new \User();
     }
 
+    // processa cadastro de user e salva no banco
     public function processCadastro()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -41,6 +42,7 @@ class CadastroController
         }
     }
 
+    // redireciona para a pagina de cadastro de user
     public function showCadastroForm()
     {
         header('Location:../view/cadastro_form.php');

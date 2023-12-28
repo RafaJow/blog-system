@@ -1,3 +1,4 @@
+<!-- Página de home do blog -->
 <?php
 include_once '../controller/PostController.php';
 

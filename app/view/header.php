@@ -1,3 +1,4 @@
+<!-- Header/cabeçalho padrão do blog -->
 <?php
 include_once '../controller/Auth.php';
 
