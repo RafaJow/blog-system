@@ -4,9 +4,11 @@ error_reporting(E_ALL);
 
 include_once '../controller/PostController.php';
 include_once '../controller/Auth.php';
+include_once '../controller/DumpController.php';
 
 $postController = new PostController();
 $authController = new Auth();
+$dumpController = new DumpController();
 
 if (!$authController->isUserLoggedIn()) {
     header("Location: acesso_negado.php");
@@ -31,6 +33,9 @@ if (!$authController->isUserLoggedIn()) {
     <div class="container mt-5">
         <div class="superior">
             <h2>Listagem de posts</h2>
+            <form class="actions" method="post" action="<?= $dumpController->geraDump() ?>">
+                <button id="gera-dump" type="submit" class="btn btn-dark">Gerar Dump</button>
+            </form>
             <a class="btn btn-success" href="post_form.php">Fazer novo Post</a>
         </div>
         <table class="table table-striped">
@@ -51,7 +56,7 @@ if (!$authController->isUserLoggedIn()) {
                         <td><?= $post['title'] ?></td>
                         <td><?= $post['content'] ?></td>
                         <td class="botoes">
-                            <form class="actions" method="post" action="editar.php">
+                            <form class="actions" method="post">
                                 <input type="hidden" name="postId" value="<?= $post['id'] ?>">
                                 <a href="post_form.php?id=<?= $post['id'] ?>" class="btn btn-primary">Editar</a>
                             </form>

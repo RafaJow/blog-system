@@ -14,5 +14,77 @@ class Database {
         }
         return $conn;
     }
+    
+    /**
+     * Get the value of host
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * Set the value of host
+     */
+    public function setHost($host): self
+    {
+        $this->host = $host;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of username
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set the value of username
+     */
+    public function setUsername($username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of password
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set the value of password
+     */
+    public function setPassword($password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dbname
+     */
+    public function getDbname()
+    {
+        return $this->dbname;
+    }
+
+    /**
+     * Set the value of dbname
+     */
+    public function setDbname($dbname): self
+    {
+        $this->dbname = $dbname;
+
+        return $this;
+    }
 }
 ?>
