@@ -1,3 +1,4 @@
+<!-- deixei configurado de maneira para que a primeira page a aparecer, seja a page de login -->
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

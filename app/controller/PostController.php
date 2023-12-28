@@ -1,14 +1,18 @@
 <?php
 
 include_once '../model/Post.php';
+include_once 'Auth.php';
+
 
 class PostController
 {
     private $post;
+    private $auth;
 
     public function __construct()
     {
         $this->post = new Post();
+        $this->auth = new Auth();
     }
 
     // busca informações do post por id no banco
@@ -43,14 +47,14 @@ class PostController
             $title      = $_POST['title'];
             $content    = $_POST['content'];
 
+            // significa que é edição
             if($postId != null){
-                echo "title $title, content $content, postId $postId";
-
                 $this->updatePost($postId, $title, $content);
                 return;
             }
 
-            $this->post->createPost($title, $content);
+            $userId = $this->auth->getLoggedUserId();
+            $this->post->createPost($title, $content, $userId);
             $this->showPaginaAdm();
         }
     }

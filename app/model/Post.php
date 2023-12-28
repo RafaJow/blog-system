@@ -69,17 +69,18 @@ class Post extends Database
     }
 
     // cria post
-    public function createPost($title, $content)
+    public function createPost($title, $content, $userId)
     {
         $conn = $this->connect();
 
         $title      = $conn->real_escape_string($title);
         $content    = $conn->real_escape_string($content);
+        $userId     = (int) $userId;
 
-        $sql = "INSERT INTO post(title, content, user_id) VALUES(?, ?, 1)";
+        $sql = "INSERT INTO post(title, content, user_id) VALUES(?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $title, $content);
+        $stmt->bind_param("ssi", $title, $content, $userId);
 
         if (!$stmt->execute()) {
             echo "Erro ao inserir registro: " . $stmt->error;
